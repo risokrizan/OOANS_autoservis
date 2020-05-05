@@ -1,9 +1,7 @@
-package ooans.OOANS_autoservis.service;
+package ooans.OOANS_autoservis.service.encode;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import ooans.OOANS_autoservis.domain.Car;
-import ooans.OOANS_autoservis.domain.mapper.Builder;
-import ooans.OOANS_autoservis.domain.mapper.CarBuilder;
 import ooans.OOANS_autoservis.domain.mapper.CarBuilderDirector;
 
 public class EncodeVinFacade {

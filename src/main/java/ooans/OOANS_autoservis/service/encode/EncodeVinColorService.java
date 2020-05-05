@@ -1,4 +1,4 @@
-package ooans.OOANS_autoservis.service;
+package ooans.OOANS_autoservis.service.encode;
 
 public class EncodeVinColorService {
     public String callApiColor() {
