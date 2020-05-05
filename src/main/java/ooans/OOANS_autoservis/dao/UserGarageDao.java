@@ -35,8 +35,13 @@ public class UserGarageDao {
     }
 
     public void createCar(Car c, String user){
-        List<Car> userCars = userGarageCars.get(user);
-        userCars.add(c);
+
+        try {
+            List<Car> userCars = userGarageCars.get(user);
+            userCars.add(c);
+        }
+        catch (Exception e){ System.out.println("Najskor sa prihlas");}
+
     }
 
     public void mockGarageData(){
@@ -49,7 +54,7 @@ public class UserGarageDao {
         Specification s2 = new Specification();
         s2.setBrand("VW");
         s2.setName("GOLF");
-        userGarageCars.put("admin", Arrays.asList(new Car(c1, new ServiceHistory(), s1), new Car(c1, null, s2)));
-        userGarageCars.put("test", Arrays.asList(new Car(c1, null, s1)));
+        userGarageCars.put("admin", Arrays.asList(new Car(c1, new ServiceHistory(), s1), new Car(c1, new ServiceHistory(), s2)));
+        userGarageCars.put("test", Arrays.asList(new Car(c1, new ServiceHistory(), s1)));
     }
 }

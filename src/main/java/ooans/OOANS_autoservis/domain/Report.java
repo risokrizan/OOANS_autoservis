@@ -5,6 +5,15 @@ public class Report {
     ReportTypeEnum reportType;
     String printableData;
 
+    @Override
+    public String toString() {
+        return "Report{" +
+                "state='" + state + '\'' +
+                ", reportType=" + reportType +
+                ", printableData='" + printableData + '\'' +
+                '}';
+    }
+
     public void setState(String state) {
         this.state = state;
     }

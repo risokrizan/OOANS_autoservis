@@ -3,6 +3,8 @@ package ooans.OOANS_autoservis.service.encode;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import ooans.OOANS_autoservis.domain.Car;
 import ooans.OOANS_autoservis.domain.mapper.CarBuilderDirector;
+import ooans.OOANS_autoservis.service.security.AccountAuthData;
+
 
 public class EncodeVinFacade {
     public final EncodeVinColorService encodeVinColorService;
@@ -20,7 +22,7 @@ public class EncodeVinFacade {
     public Car createEncode(String vin) throws JsonProcessingException {
         System.out.println("Ideme vytvorit auto s VIN: "+vin);
         Car c = new CarBuilderDirector(this.encodeVinColorService.callApiColor(), this.encodeCarSpecsService.callApiCarSpecs(), this.encodeCarServiceHistoryService.callApiServiceHistory()).constructCar();
-        System.out.println(c.toString());
+        if(AccountAuthData.getInstance().getToken() != null) System.out.println(c.toString());
         return c;
 
     }

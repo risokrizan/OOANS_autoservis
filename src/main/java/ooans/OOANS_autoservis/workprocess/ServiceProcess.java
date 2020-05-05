@@ -19,6 +19,7 @@ public class ServiceProcess extends ServiceStatePublisher {
 
     public void setServiceState(ServiceState serviceState) {
         this.serviceState = serviceState;
+        this.notifyServiceStateSubscribers();
     }
 
     public ServiceState getServiceState() {

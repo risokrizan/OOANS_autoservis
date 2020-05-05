@@ -2,6 +2,7 @@ package ooans.OOANS_autoservis.service.report;
 
 import ooans.OOANS_autoservis.dao.ReportDao;
 import ooans.OOANS_autoservis.domain.Report;
+import ooans.OOANS_autoservis.service.security.AccountAuthData;
 
 import java.io.File;
 
@@ -14,6 +15,7 @@ public abstract class BaseReportService implements  ReportService{
 
     public void generateReport(Report r, String fileName, String reportDataInput){
         try {
+            if(AccountAuthData.getInstance().getToken() == null)    throw new Exception("Treba sa prihlasit");
             this.reportDao.process(r);
             System.out.println(r.toString());
 

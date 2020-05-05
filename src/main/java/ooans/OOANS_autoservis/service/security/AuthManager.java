@@ -49,7 +49,7 @@ public class AuthManager {
         };
 
         ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        executor.scheduleAtFixedRate(helloRunnable, 0, 15, TimeUnit.SECONDS);
+        executor.scheduleAtFixedRate(helloRunnable, 0, 60, TimeUnit.SECONDS);
     }
     public static String rndChar () {
         Random r = new Random();
