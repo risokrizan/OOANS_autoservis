@@ -8,6 +8,31 @@ public class AccountAuthData {
     List<String> roles;
     String token;
 
+
+
+    public static AccountAuthData getInstance() {
+        if (user_instance == null)
+            user_instance = new AccountAuthData();
+
+        return user_instance;
+    }
+
+    public static void  clearInstance(){
+        user_instance=null;
+    }
+    @Override
+    public String toString() {
+        return "AccountAuthData{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", roles=" + roles +
+                ", token='" + token + '\'' +
+                '}';
+    }
+
+    public void log() {
+        System.out.println(this.toString());
+    }
     public Number getId() {
         return id;
     }
@@ -45,29 +70,4 @@ public class AccountAuthData {
     private AccountAuthData() {
 
     }
-
-    public static AccountAuthData getInstance() {
-        if (user_instance == null)
-            user_instance = new AccountAuthData();
-
-        return user_instance;
-    }
-
-    public static void  clearInstance(){
-        user_instance=null;
-    }
-    @Override
-    public String toString() {
-        return "AccountAuthData{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", roles=" + roles +
-                ", token='" + token + '\'' +
-                '}';
-    }
-
-    public void log() {
-        System.out.println(this.toString());
-    }
-
 }
